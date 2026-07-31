@@ -6,8 +6,7 @@
 2. [R3F and ecosystem sources](#r3f-and-ecosystem-sources)
 3. [Framework integration sources](#framework-integration-sources)
 4. [Asset pipeline sources](#asset-pipeline-sources)
-5. [Workflow influences](#workflow-influences)
-6. [Version policy](#version-policy)
+5. [Version policy](#version-policy)
 
 Use primary documentation for APIs and migration-sensitive facts. Treat tutorials and community
 examples as inspiration rather than API authority. When a user supplies licensed or private
@@ -94,20 +93,6 @@ SSR, and hydration documentation before applying an adapter pattern.
 - Rapier: https://rapier.rs/docs/
 
 Use current command help for glTF-Transform and Blender exporter options; both evolve.
-
-## Workflow influences
-
-- MengTo/Skills: https://github.com/MengTo/Skills
-- Reviewed game-development skill set at commit
-  `46abf7860d716c33de8217b6ff9f75debf28afaf` (MIT License, copyright 2026 Meng To).
-
-Its focused workflows for cameras, mobile games, VFX, optimization, testing, shipping, action
-combat, level authoring, and enemy systems informed the topic inventory in
-`game-development.md`. This skill rewrites and expands those ideas into a framework-neutral,
-deterministic architecture with current Three.js/WebGPU awareness, explicit accessibility paths,
-reduced-motion behavior, save migration, reproducible fixtures, and an executable game starter.
-No upstream source code or assets are bundled; the reviewed repository and license are identified
-above for public attribution.
 
 ## Version policy
 

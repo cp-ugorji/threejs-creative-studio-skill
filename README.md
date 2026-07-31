@@ -298,5 +298,4 @@ change introduces a new renderer, framework adapter, or difficult visual techniq
 
 ## License
 
-[MIT](LICENSE). Attributed workflow influences are documented in
-[references/sources.md](references/sources.md#workflow-influences).
+[MIT](LICENSE).

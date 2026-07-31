@@ -14,8 +14,6 @@ content, use it only within their authorized task and preserve its access contro
 
 ## Primary Three.js sources
 
-- Repository and releases: https://github.com/mrdoob/three.js
-- Migration guide: https://github.com/mrdoob/three.js/wiki/Migration-Guide
 - Documentation: https://threejs.org/docs/
 - Manual: https://threejs.org/manual/
 - Fundamentals: https://threejs.org/manual/en/fundamentals.html

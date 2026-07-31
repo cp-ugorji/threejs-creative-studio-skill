@@ -48,9 +48,8 @@ semantic HTML.
 
 ## Install
 
-Replace `YOUR_ORG` in these examples with the published GitHub owner. The directory containing
-`SKILL.md` must be named `threejs` so hosts expose the stable name as `$threejs`, `/threejs`, or
-`@threejs` according to their own invocation syntax.
+The directory containing `SKILL.md` must be named `threejs` so hosts expose the stable name as
+`$threejs`, `/threejs`, or `@threejs` according to their own invocation syntax.
 
 ### One global install for compatible agents
 

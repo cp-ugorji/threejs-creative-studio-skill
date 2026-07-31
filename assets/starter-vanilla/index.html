@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b12" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23090b12'/%3E%3Cpath d='M20 17h27L31 31l16 16H20' fill='none' stroke='%2368e5ff' stroke-width='6' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <title>__PROJECT_NAME__</title>
+  </head>
+  <body>
+    <main class="shell">
+      <div class="copy">
+        <p class="eyebrow">Interactive study</p>
+        <h1>Give one object a world worth exploring.</h1>
+        <p>Drag to orbit. Use the buttons for keyboard-accessible views.</p>
+        <div class="actions" aria-label="3D viewer controls">
+          <button type="button" data-view="left">Left view</button>
+          <button type="button" data-view="front">Front view</button>
+          <button type="button" data-view="right">Right view</button>
+        </div>
+      </div>
+      <div class="stage">
+        <canvas
+          data-three-canvas
+          aria-label="Interactive abstract sculptural object"
+          aria-describedby="viewer-description"
+        ></canvas>
+        <p id="viewer-description" class="sr-only">
+          A faceted blue sculptural object floating above a circular platform.
+        </p>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

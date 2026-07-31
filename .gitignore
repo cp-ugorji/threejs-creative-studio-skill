@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.pnpm-store/
+.DS_Store
+artifacts/
+test-results/
+playwright-report/
+.codebase-memory/
+docs/private-research/
+*.log
+.docs/

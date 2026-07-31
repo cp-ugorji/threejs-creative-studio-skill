@@ -1,0 +1,66 @@
+name: Skill CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: |
+            evals/challenge-gallery/pnpm-lock.yaml
+            evals/orbit-studio/pnpm-lock.yaml
+
+      - name: Install challenge dependencies
+        run: pnpm --dir evals/challenge-gallery install --frozen-lockfile
+      - name: Install Chrome for Playwright
+        run: pnpm --dir evals/challenge-gallery exec playwright install --with-deps chrome
+      - name: Build and test all 24 challenges
+        run: |
+          pnpm --dir evals/challenge-gallery build
+          pnpm --dir evals/challenge-gallery test
+
+      - name: Install Orbit benchmark dependencies
+        run: pnpm --dir evals/orbit-studio install --frozen-lockfile
+      - name: Build and test the Vue framework benchmark
+        run: |
+          pnpm --dir evals/orbit-studio build
+          pnpm --dir evals/orbit-studio test
+
+      - name: Verify generated starters
+        run: |
+          node scripts/scaffold.mjs --stack vanilla --out /tmp/threejs-vanilla --name "Vanilla CI"
+          node scripts/scaffold.mjs --stack r3f --out /tmp/threejs-r3f --name "R3F CI"
+          node scripts/scaffold.mjs --stack vue --out /tmp/threejs-vue --name "Vue CI"
+          node scripts/scaffold.mjs --stack game --out /tmp/threejs-game --name "Game CI"
+          pnpm --dir /tmp/threejs-vanilla install
+          pnpm --dir /tmp/threejs-vanilla build
+          pnpm --dir /tmp/threejs-r3f install
+          pnpm --dir /tmp/threejs-r3f build
+          pnpm --dir /tmp/threejs-vue install
+          pnpm --dir /tmp/threejs-vue build
+          pnpm --dir /tmp/threejs-game install
+          pnpm --dir /tmp/threejs-game test
+          pnpm --dir /tmp/threejs-game build
+
+      - name: Run strict static audits
+        run: |
+          node scripts/audit-threejs.mjs assets/starter-vanilla --strict
+          node scripts/audit-threejs.mjs assets/starter-r3f --strict
+          node scripts/audit-threejs.mjs assets/starter-vue --strict
+          node scripts/audit-threejs.mjs assets/starter-game --strict
+          node scripts/audit-threejs.mjs evals/challenge-gallery --strict
+          node scripts/audit-threejs.mjs evals/orbit-studio --strict

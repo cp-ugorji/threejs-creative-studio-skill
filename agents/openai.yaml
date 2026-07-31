@@ -1,0 +1,4 @@
+interface:
+  display_name: "Three.js Creative Studio"
+  short_description: "Design and ship polished Three.js experiences"
+  default_prompt: "Use $threejs in /build mode to turn my brief into a polished, verified interactive 3D web experience."
